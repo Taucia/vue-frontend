@@ -106,7 +106,7 @@ export default createStore({
           method: "DELETE",
         })
           .then((res) => res.json())
-          .then(() => context.dispatch('getUsers'));
+          .then(() => context.dispatch('getusers'));
       },
       // update user
       updateuser: async (context, user) => {
