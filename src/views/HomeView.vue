@@ -1,54 +1,21 @@
 <template>
- <div class="book-slide ">
+ <div class="book-slide" v-for="product in products" :key="product">
   <div class="book js-flickity" data-flickity-options='{ "wrapAround": true }'>
    <div class="book-cell">
     <div class="book-img">
-     <img src="http://www.entinology.com/wp-content/uploads/2022/03/Frame-1-2.png" alt="" class="book-photo">
+  <img class="book-card__img img-fluid" :src= "product.img" :alt="product.title"/>
     </div>
     <div class="book-content">
-     <div class="book-title">Mock Up Book</div>
-     <div class="book-author">Entinology Book</div>
+     <div class="book-title">{{ product.title }}</div>
+     <div class="book-author"> {{product.author}}</div>
      <div class="rate">★★★★★</div>
-     <div class="book-sum">Entinology book description. </div>
-     <div class="book-see">See The Book</div>
+     
+     <div class="book-see"><router-link to="/products">See The Book</router-link></div>
     </div>
    </div>
-   <div class="book-cell">
-    <div class="book-img">
-     <img src="http://www.entinology.com/wp-content/uploads/2022/03/Frame-1-2.png" alt="" class="book-photo">
-    </div>
-    <div class="book-content">
-     <div class="book-title">Mock Up Book</div>
-     <div class="book-author">Entinology Book</div>
-     <div class="rate">★★★★★</div>
-     <div class="book-sum">Entinology book description.</div>
-     <div class="book-see book-blue">See The Book</div>
-    </div>
-   </div>
-   <div class="book-cell">
-    <div class="book-img">
-     <img src="http://www.entinology.com/wp-content/uploads/2022/03/Frame-1-2.png" alt="" class="book-photo">
-    </div>
-    <div class="book-content">
-     <div class="book-title">Mock Up Book</div>
-     <div class="book-author">Entinology Book</div>
-     <div class="rate">★★★★★</div>
-     <div class="book-sum">Entinology book description.</div>
-     <div class="book-see book-pink">See The Book</div>
-    </div>
-   </div>
-   <div class="book-cell">
-    <div class="book-img">
-     <img src="http://www.entinology.com/wp-content/uploads/2022/03/Frame-1-2.png" alt="" class="book-photo">
-    </div>
-    <div class="book-content">
-     <div class="book-title">Mock Up Book</div>
-     <div class="book-author">Entinology Book</div>
-     <div class="rate">★★★★★</div>
-     <div class="book-sum">Entinology book description.</div>
-     <div class="book-see book-yellow">See The Book</div>
-    </div>
-   </div>
+ 
+
+   
     </div>
    </div>
  
@@ -61,7 +28,15 @@ export default {
   name: 'HomeView',
   components: {
    
-  }
+  },
+   computed: {
+        products() {
+            return this.$store.state.products;
+    },
+  },
+    mounted() {
+        this.$store.dispatch("getProducts");
+    },
 }
 </script>
 <style scoped>
@@ -100,7 +75,7 @@ body {
 .header {
   height: 70px;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #db4747;
   padding: 0 30px;
   font-size: 14px;
   font-weight: 500;
@@ -118,10 +93,11 @@ body {
   position: relative;
   display: flex;
   padding: 25px;
-  width: 40%;
+  width: 50%;
   height: 250px;
   margin-right: 1px;
-    flex-direction:column-center;
+  margin-left:1px;
+    flex-direction:column-start;
 }
 .book-cell:nth-child(1) {
   background-color: #282B30;
@@ -161,7 +137,7 @@ body {
 }
 .book-photo {
   width: 180px;
-  flex-shrink: 0;
+  flex-shrink: 1;
   bottom: -35px;
   left: 35px;
   transition: 0.3s ease;
@@ -219,7 +195,7 @@ h1 {
 }
 .rating > label {
   color: #fff;
-  float: right;
+  float: center;
 }
 .rating > input:checked ~ label, .rating:not(:checked) > label:hover, .rating:not(:checked) > label:hover ~ label {
   color: #d85d61;
