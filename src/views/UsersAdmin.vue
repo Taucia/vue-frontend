@@ -2,7 +2,7 @@
   <div id="main" class="users container">
     <h1>ALL USERS</h1>
     <div style="overflow-x:auto">
-      <table class="table text-dark">
+      <table class="table text-dark border-dark table-bordered">
       <thead>
         <tr>
           <th scope="col">ID</th>
@@ -22,7 +22,7 @@
           <th scope="row">{{ user.email }}</th>
           <th scope="row">{{user.userPassword}}/></th>
           <th scope="row">{{ user.cart }}</th>
-          <th scope="row">
+          <th scope="row text-center">
             <button
               data-bs-toggle="modal"
               :data-bs-target="`#editUser` + user.UserId"

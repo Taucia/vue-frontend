@@ -126,6 +126,7 @@ main {
   background-color: #e1e1e1;
   
 }
+
 .book-card .book-card__title {
  font-size:medium;
   margin-bottom: 8px;
