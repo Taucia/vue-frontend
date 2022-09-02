@@ -27,7 +27,7 @@
            <th scope="row">{{ product.description }}</th>
            <th scope="row">{{ product.category }}</th>
           <th scope="row"><img :src= "product.img" :alt="product.title" /></th>
-             <th scope="row" class="pdf">{{ product.pdf }}</th>
+             <th scope="row" class="pdf p-0 m-0">{{ product.pdf }}</th>
           
          
           <th scope="row">

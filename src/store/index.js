@@ -192,14 +192,22 @@ export default createStore({
       }
       },
 
-      // delete product
-      deleteProduct: async (context, Prod_id) => {
-      fetch("https://library-apibackend.herokuapp.com//products/" + Prod_id, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then(() => context.dispatch('getProducts'));
-      },
+     // delete product
+deleteProduct: async (context, product) => {
+  console.log(product);
+  fetch("https://library-apibackend.herokuapp.com//products/" + product.id, {
+    method: "DELETE",
+    body: JSON.stringify(product),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+    })
+    .then((res)=> res.json())
+    .then((data)=> {
+      context.dispatch("getproducts");
+      
+    })
+},
     // updates list
       updateProduct: async (context, product) => {
         // fetch("http://localhost:3000/products/" + product.id, {
