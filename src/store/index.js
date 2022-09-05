@@ -31,8 +31,8 @@ export default createStore({
     setProduct(state, product) {
       state.product = product;
     },
-    setCart(state, values){
-      state.cart = values;
+    setCart(state, cart){
+      state.cart = cart;
     }
   },
   actions: {
@@ -240,10 +240,10 @@ deleteProduct: async (context, product) => {
     );
     let data = await res.json();
     let result = data.results;
-    if (result) {
-      context.commit("setCart", result);
-    } else {
+    if (result == 'No items in cart') {
       console.log("No items in cart");
+    } else {
+      context.commit("setCart", result);
     }
   },
 
