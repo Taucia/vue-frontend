@@ -69,6 +69,7 @@ export default {
     return {
       email: null,
       password: null,
+      cart: null
     };
   },
   computed: {
@@ -81,6 +82,7 @@ export default {
       const payload = {
         email: this.email,
         password: this.password,
+        cart: this.cart
       };
       this.$store.dispatch("login", payload);
     },

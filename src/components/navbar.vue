@@ -40,6 +40,9 @@
               ><router-link to="/contact">Contact</router-link></a
             >
           </li>
+          <button>
+            <cartVue/>
+          </button>
           
           <li class="nav-item dropdown rounded ">
             <a
@@ -106,19 +109,24 @@
 </template>
 
 <script>
-// export default {
-//   computed: {
-//     users() {
-//       return this.$store.state.users;
-//     },
-//   },
-//   methods: {
-//     logout() {
-//         window.location.reload();
-//     //   return this.$store.state.user = null;
-//     },
-//   },
-// };
+ import cartVue from '@/components/cart.vue';
+export default {
+  
+  computed: {
+    cart() {
+      return this.$store.state.cart;
+    },
+    user() {
+      return this.$store.state.user;
+    },
+    mounted() {
+      this.$store.dispatch("getUser");
+    },
+  },
+  components:{
+    cartVue
+  }
+};
 </script>
 
 <style scoped>

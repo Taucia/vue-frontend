@@ -2,19 +2,21 @@ import {
   createStore
 } from 'vuex'
 import router from '@/router';
-const fulstack_capstone_taskUrl = 'https://library-apibackend.herokuapp.com/';
+const fullstack_capstone_taskUrl = 'https://library-apibackend.herokuapp.com/';
 
 export default createStore({
   state: {
     users: null,
     products: null,
     product: null,
-    user : null
+    user : null,
+    cart: null,
   },
   getters: {
     getUsers: state => state.users,
     getUser: state => state.user,
-    getProducts: state => state.products
+    getProducts: state => state.products,
+    getCart:state => state.cart
   },
   mutations: {
     setUsers(state, users) {  
@@ -28,6 +30,9 @@ export default createStore({
     },
     setProduct(state, product) {
       state.product = product;
+    },
+    setCart(state, values){
+      state.cart = values;
     }
   },
   actions: {
@@ -36,7 +41,8 @@ export default createStore({
       // fecth from body
       const { firstName, lastName, email, password } = payload;
       // fetch method from api
-      await fetch("https://library-apibackend.herokuapp.com/register", {
+      // await fetch("https://library-apibackend.herokuapp.com/register", {
+      await fetch("http://localhost:4000/register", {
       // await fetch("https://library-apibackend.herokuapp.com/register", {
         method: "POST",
         headers: {
@@ -47,20 +53,21 @@ export default createStore({
           firstName: firstName,
           lastName: lastName,
           email: email,
-          password: password,
+          password: password
         }),
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          console.log(data.msg);
+          console.log(data.userData);
         })
     },
       // login
      // login
     login (context, payload){
       // console.log(payload);
-    fetch("http://localhost:4000/login" , {
-        method: "PATCH",
+    fetch("https://library-apibackend.herokuapp.com/login" , {
+        method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
@@ -68,20 +75,20 @@ export default createStore({
       })
      .then((response) => response.json())
      .then((data) => {
-      // if (data.msg === "Login Failed.") {
-      //  data.msg
-      // } else {
-      //   context.commit("setUser", payload);
-
-      //   router.push({name: "home"})
-      // }
+      if (data.msg === "Login Failed.") {
+       data.msg
+      } else {
+        context.commit("setUser", payload);
+        router.push({name: "home"})
+        context.dispatch('getCart', data.user[0].id);
+      }
       console.log(data);
      })
     },
 
       // get users
       getusers: async (context) => {
-        let res = await fetch(fulstack_capstone_taskUrl + 'users');
+        let res = await fetch(fullstack_capstone_taskUrl + 'users');
         let data = await res.json();
         let result = data.results;
 
@@ -93,7 +100,7 @@ export default createStore({
       },
       // get single user
       getuser: async (context, id) => {
-        fetch(fulstack_capstone_taskUrl + 'users/' + id)
+        fetch(fullstack_capstone_taskUrl + 'users/' + id)
           .then((res) => res.json())
           .then((data) => {
             console.log(data)
@@ -155,7 +162,7 @@ export default createStore({
       // get single product  
       getproduct: async (context, Prod_id) => {
       // Product_id = 1
-      fetch(fulstack_capstone_taskUrl+'products/' + Prod_id)
+      fetch(fullstack_capstone_taskUrl+'products/' + Prod_id)
       .then((res) => res.json())
       .then((data) =>{
       console.log(data)
@@ -195,7 +202,7 @@ export default createStore({
      // delete product
 deleteProduct: async (context, product) => {
   console.log(product);
-  fetch("https://library-apibackend.herokuapp.com//products/" + product.id, {
+  fetch("https://library-apibackend.herokuapp.com/products/" + product.id, {
     method: "DELETE",
     body: JSON.stringify(product),
     headers: {
@@ -211,7 +218,7 @@ deleteProduct: async (context, product) => {
     // updates list
       updateProduct: async (context, product) => {
         // fetch("http://localhost:3000/products/" + product.id, {
-        fetch("https://library-apibackend.herokuapp.com//products/" + product.Prod_id, {
+        fetch("https://library-apibackend.herokuapp.com/products/" + product.Prod_id, {
             method: "PUT",
             body: JSON.stringify(product),
             headers: {
@@ -224,6 +231,22 @@ deleteProduct: async (context, product) => {
             context.dispatch("getProducts");
           });
       },
+
+  // get cart
+  getCart: async (context) => {
+    // fetch
+    let res = await fetch(
+      fullstack_capstone_taskUrl + "users/" + context.state.user.id + "/cart"
+    );
+    let data = await res.json();
+    let result = data.results;
+    if (result) {
+      context.commit("setCart", result);
+    } else {
+      console.log("No items in cart");
+    }
+  },
+
   },
   modules: {}
 
