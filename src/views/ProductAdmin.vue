@@ -16,57 +16,54 @@
         <tbody>
           <tr v-for="product in products" :key="product.id">
             <th scope="row" class="p-5 pb-5">{{ product.id }}</th>
-            <th scope="row"><img :src="product.img" :alt="product.title" /></th>
+         
             <th scope="row">{{ product.title }}</th>
 
-            <th scope="row">R{{ product.author }}</th>
+            <th scope="row">{{ product.author }}</th>
             <th scope="row">{{ product.description }}</th>
             <th scope="row">{{ product.category }}</th>
-
+   <th scope="row"><img :src="product.img" :alt="product.title" /></th>
             <th scope="row"><a href="{{ product.pdf }}">Product PDF</a></th>
 
             <th scope="row text-center">
               <button
                 data-bs-toggle="modal"
-                :data-bs-target="`#editProduct` + product.id"
+                :data-bs-target="`#edit` + product.id"
                 class="btn btn-grad"
                 id="prodButton"
               >
                 Edit
               </button>
-              
+
+                
               <button
                 data-bs-toggle="modal"
-                :data-bs-target="`#addProduct` + product.id"
+                :data-bs-target="`#add`"
                 class="btn btn-grad"
                 id="prodButton"
               >
                 Upload
               </button>
-              <button
-                data-bs-toggle="modal"
-                :data-bs-target="`#deleteProduct` + product.id"
-                class="btn btn-grad"
-                id="prodButton"
-              >
+              <button @click="this.$store.dispatch('deleteProduct',product)"  class="btn btn-grad">
                 Delete
               </button>
             </th>
-            <EditProductModal :product="product" />
-            <DeleteProductModal :product="product" />
+            <!-- <DeleteProductModal :product="product" /> -->
+            <editModal :product="product" />
+            <!-- <editModal :product="product" /> -->
           </tr>
+              <addModal :product="product"/>
         </tbody>
       </table>
     </div>
-    <AddProductModal />
   </div>
 </template>
 <script>
-// import EditProductModal from "../components/EditProductModal";
+import editModal from "../components/editModal.vue";
 // import DeleteProductModal from "../components/DeleteProductModal.vue";
-// import AddProductModal from "../components/AddProductModal.vue";
+import addModal from "../components/addModal.vue";
 export default {
-  //   components: { EditProductModal, DeleteProductModal, AddProductModal },
+    components: { editModal,addModal },
   mounted() {
     this.$store.dispatch("getProducts");
   },

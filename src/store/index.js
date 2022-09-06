@@ -78,6 +78,7 @@ export default createStore({
       if (data.msg === "Login Failed.") {
        data.msg
       } else {
+        console.log(data)
         context.commit("setUser", payload);
         router.push({name: "home"})
         context.dispatch('getCart', data.user[0].id);
@@ -175,29 +176,44 @@ export default createStore({
       const { title, author,category, description, img, pdf} = payload;
 
       try{
-        await fetch(RoastedBeansUrl+"products", {
+        await fetch("https://library-apibackend.herokuapp.com/products", {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
         body: JSON.stringify({
-          titile: Prod_title,
+          title: title,
           author:author,
           category: category,
           description: description,
           img: img, 
-          pdf: pdf,
-        
+          pdf: pdf
         }),
       })
         .then((response) => response.json)
-        .then((json) => context.commit("setProducts", json.data));
-        router.push({name: "admin"});
+        // .then((json) => context.commit("setProducts", json.data));
+        .then(() => context.dispatch('getProducts'))
+        // router.push({name: "admin"});
         
       }catch(e) {
       console.log(e);
       }
       },
+   // Edit GPU
+   editProduct(context, product) {
+    fetch(`https://library-apibackend.herokuapp.com/products/${product.id}`, {
+        method: "PUT",
+        body: JSON.stringify(product),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        context.dispatch("getProducts")
+      });
+  },
 
      // delete product
 deleteProduct: async (context, product) => {
@@ -232,20 +248,67 @@ deleteProduct: async (context, product) => {
           });
       },
 
+
+         // add user
+         adduser: async(context, payload) => {
+          const { firstName, lastName, email, password }= payload ;
+    
+          try{
+            await fetch("https://library-apibackend.herokuapp.com/users", {
+            method: "POST",
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+            body: JSON.stringify({
+              firstName: firstName,
+              lastName:lastName,
+              email: email,
+              password: password
+              
+            }),
+          })
+            .then((response) => response.json)
+            // .then((json) => context.commit("setProducts", json.data));
+            .then(() => context.dispatch('getUsers'))
+            // router.push({name: "admin"});
+            
+          }catch(e) {
+          console.log(e);
+          }
+          },
   // get cart
-  getCart: async (context) => {
+  getCart: async (context,id) => {
     // fetch
     let res = await fetch(
-      fullstack_capstone_taskUrl + "users/" + context.state.user.id + "/cart"
+      `https://library-apibackend.herokuapp.com/users/${id}/cart`
     );
     let data = await res.json();
     let result = data.results;
+    console.log(result)
     if (result == 'No items in cart') {
       console.log("No items in cart");
+      console.log(result);
     } else {
-      context.commit("setCart", result);
+      context.commit("setCart", JSON.parse(JSON.stringify(result)));
     }
   },
+  addCart: async (context,product,id) => {
+    console.log(context.state.cart);
+    id = context.state.user.id;
+    console.log(product)
+    await fetch(`https://library-apibackend.herokuapp.com/users/${id}/cart` , {
+      method : "POST",
+      body : JSON.stringify(product),
+      headers : {
+        "Context-type" : "application/json; charset=UTF-8" 
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      context.dispatch("getCart" , id)
+    })
+  }
 
   },
   modules: {}

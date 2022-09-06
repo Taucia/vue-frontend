@@ -36,7 +36,7 @@
         <button class="col-6 btn1 btn-lg btn btn-block">Read</button>
       </div>
       <hr>
-      
+      <button @click="this.$store.dispatch('addCart',product[0])">Add to cart</button>
     </div>
   </main>
 </template>
@@ -49,7 +49,7 @@ export default {
     product() {
       return this.$store.state.product;
     },
-  },
+  }
 };
 </script>
 <style scoped>

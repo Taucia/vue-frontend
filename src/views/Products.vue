@@ -1,57 +1,51 @@
 <template>
-
-
-<!-- 
-    <div id="card" v-for="product in products" :key="product">
-      <img :src= "product.img" :alt="product.title" />
-     {{ product.title }}
-       {{product.author}}
-          </div>  -->
-
-<main>
-  <div class="book-card container pt-5 pb-5 m-5" v-for="product in products" :key="product">
-    <div class="book-card__cover row">
-      <div class="book-card__book  col">
-        <div id="card"  class="book-card__book-front ">
-          <img class="book-card__img img-fluid" :src= "product.img" :alt="product.title"/>
+  <div class="container">
+    <div class="row">
+      <div
+        class="book-card pt-5 pb-5 m-2  col"
+        v-for="product in products"
+        :key="product"
+      >
+        <div class="book-card__cover">
+          <div class="book-card__book">
+            <div id="card" class="book-card__book-front">
+              <img
+                class="book-card__img img-fluid"
+                :src="product.img"
+                :alt="product.title"
+              />
+            </div>
+            <div class="book-card__book-back"></div>
+            <div class="book-card__book-side"></div>
+          </div>
         </div>
-        <div class="book-card__book-back">
-        </div>
-        <div class="book-card__book-side">
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="book-card__title col">
-     {{ product.title }}
-      </div>
-      <div class="book-card__author col">
-       {{product.author}}
-      </div>
-        <router-link :to="{name: 'product', params: {id: product.id}}">
+        <div>
+          <div class="book-card__title col">
+            {{ product.title }}
+          </div>
+          <div class="book-card__author col">
+            {{ product.author }}
+          </div>
+          <router-link :to="{ name: 'product', params: { id: product.id } }">
             <button id="adminButton" class="btn btn">View Products</button>
-        </router-link>
+          </router-link>
+        </div>
+      </div>
     </div>
   </div>
-</main>
-        
-
-   
 </template>
 
 <script>
 export default {
-
-    computed: {
-        products() {
-            return this.$store.state.products;
+  computed: {
+    products() {
+      return this.$store.state.products;
     },
   },
-    mounted() {
-        this.$store.dispatch("getProducts");
-    },
+  mounted() {
+    this.$store.dispatch("getProducts");
+  },
 };
-
 </script>
 
 <style scoped>
@@ -60,7 +54,8 @@ export default {
   margin: 0;
   padding: 0;
 }
-body, html {
+body,
+html {
   height: 100%;
 }
 body {
@@ -69,6 +64,7 @@ body {
   font-family: "Times New Roman", serif;
   background-color: #673ab7;
   background: linear-gradient(45deg, #673ab7 0%, #8a22aa 100%);
+  justify-content: center;
 }
 
 main {
@@ -79,7 +75,7 @@ main {
   overflow-x: scroll;
 }
 .book-card {
-  width: 400px;
+  width: 300px;
   padding: 15px;
   border-radius: 5px;
   background-color: #fff;
@@ -124,13 +120,11 @@ main {
   width: 100%;
   height: 100%;
   background-color: #e1e1e1;
-  
 }
 
 .book-card .book-card__title {
- font-size:medium;
+  font-size: medium;
   margin-bottom: 8px;
-
 }
 .book-card .book-card__author {
   color: #757575;
@@ -145,6 +139,4 @@ main {
 .book-card:hover .book-card__book-side {
   opacity: 1;
 }
-
- 
 </style>

@@ -25,11 +25,19 @@
           <th scope="row text-center">
             <button
               data-bs-toggle="modal"
-              :data-bs-target="`#editUser` + user.UserId"
+              :data-bs-target="`#addUser` + user.UserId"
               class="btn btn-grad"
               id="prodButton"
             >
               Edit
+            </button>
+            <button
+              data-bs-toggle="modal"
+              :data-bs-target="`#adduser` + user.id"
+              class=" btn btn-grad"
+              id="prodButton"
+            >
+              Add
             </button>
             <button
               data-bs-toggle="modal"
@@ -40,7 +48,8 @@
               Delete
             </button>
           </th>
-          <EditUserModal :user="user" />
+          <EditModalUser :user="user" />
+          <addModalUser :user="user" />
           <DeleteUserModal :user="user" />
         </tr>
       </tbody>

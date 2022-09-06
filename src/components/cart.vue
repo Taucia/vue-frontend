@@ -25,7 +25,12 @@
     </div>
     <div class="offcanvas-body text-black">
       <div v-for="(product, index) in cart" :key="index">
-        {{ product.productData[0].title }}
+        {{ product.title }}
+        <img
+              class="book-card__img"
+              :src="product.img"
+              :alt="product.title"
+            />
       </div>
     </div>
   </div>
@@ -43,6 +48,8 @@ export default {
     },
     mounted() {
       this.$store.dispatch("getUser");
+      this.$store.dispatch("getCart");
+      
     },
   },
 };
