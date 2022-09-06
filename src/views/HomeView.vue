@@ -12,19 +12,19 @@
    <!-- carousel -->
    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 	   <div class="carousel-inner">
-		 <div class="carousel-item active">
+		 <div class="carousel-item active pic">
 		   <img src="https://i.postimg.cc/SsrGKTNR/It-Ends-With-Us.jpg" class="d-block  center " alt="...">
 		 </div>
-		 <div class="carousel-item">
+		 <div class="carousel-item pic">
 		   <img src="https://i.postimg.cc/T3Jj0Ng9/the-spanish-love-deception.png" class="d-block " alt="...">
 		 </div>
-		 <div class="carousel-item">
+		 <div class="carousel-item pic">
 		   <img src="https://i.postimg.cc/138Pc2kx/verity.jpg" class="d-block " alt="...">
 		 </div>
-		 <div class="carousel-item">
+		 <div class="carousel-item pic">
 		   <img src="https://i.postimg.cc/LX9ZXmWK/red-queen.jpg" class="d-block " alt="...">
 		 </div>
-		 <div class="carousel-item">
+		 <div class="carousel-item pic">
 			 
 		   <img src="https://i.postimg.cc/jdcqxzb5/crave.jpg" class="d-block " alt="...">
 		 </div>
@@ -40,7 +40,7 @@
 	   </button>
 	 </div>
    
- <div slider="center: true" >
+ <!-- <div slider="center: true" >
    <div class="position-relative visible-toggle dark" tabindex="-1">
 	 <ul
 	   class="slider-items child-width-1-2@s child-width-1-4@l child-width-1-4@m grid"
@@ -88,7 +88,7 @@
    </div>
 
    <ul class="slider-nav dotnav flex-center margin"></ul>
- </div>
+ </div> -->
 
 	</div>
 
@@ -123,6 +123,7 @@ export default {
   justify-content: flex;
   flex-direction: row;
   flex-flow: row nowrap;
+ 
   /*%%%%%%%%
    %% CARD %%
    %%%%%%%%*/

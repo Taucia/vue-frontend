@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
+  <div class="container-fluid px-lg-3">
     <div class="row">
       <div
-        class="book-card pt-5 pb-5 m-2  col"
+        class="book-card pt-5 pb-5 m-2 col"
         v-for="product in products"
         :key="product"
       >

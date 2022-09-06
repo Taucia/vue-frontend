@@ -11,6 +11,14 @@
           <th>Category</th>
           <th>img</th>
           <th style="width: 200px">pdf</th>
+              <button
+                data-bs-toggle="modal"
+                :data-bs-target="`#add`"
+                class="btn btn-grad"
+                id="prodButton"
+              >
+                ADD
+              </button>
         </thead>
 
         <tbody>
@@ -36,14 +44,6 @@
               </button>
 
                 
-              <button
-                data-bs-toggle="modal"
-                :data-bs-target="`#add`"
-                class="btn btn-grad"
-                id="prodButton"
-              >
-                Upload
-              </button>
               <button @click="this.$store.dispatch('deleteProduct',product)"  class="btn btn-grad">
                 Delete
               </button>
