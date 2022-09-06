@@ -15,25 +15,25 @@
     aria-labelledby="offcanvasExampleLabel"
   >
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Wish List</h5>
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Wish List <i class="bi bi-star "></i> </h5>
             <button
                 data-bs-toggle="modal"
                 :data-bs-target="`#add`"
                 class="btn btn-grad"
-                id="prodButton"
-              >
-                ADD
+                id="prodButton">
+                Clear
               </button>
       <button
         type="button"
-        class="btn btn-grad btn-close"
+        class="btn btn-grad"
         data-bs-dismiss="offcanvas"
         aria-label="Close"
       >X</button>
-    </div>
+      
+    </div><hr>
     <div class="offcanvas-body text-black">
       <div v-for="(product, index) in cart" :key="index">
-        <div class="container card row">
+        <div class="container card row text-center">
               
             
  {{ product.title }}
@@ -143,5 +143,14 @@ width:50%;
   background-position: right center;
   color: #fff;
   text-decoration: none;
+}
+.bi{
+    color:#9ed4d4;
+    background-color: #eee;
+    height:50px;
+    
+}
+hr{
+    color:#2f7474;  
 }
 </style>
