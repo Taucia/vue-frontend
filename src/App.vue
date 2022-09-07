@@ -1,8 +1,10 @@
 <template>
-<Navbar/>
- <router-view/>
-  <Footer/>
-
+  <Navbar />
+  <h1 v-if="this.$store.state.user.userRole == 'admin'">
+    rdttyghjkl;kjgfdsghjkjiugfdghjkl;ghbnkkl;jhj
+  </h1>
+  <router-view />
+  <Footer />
 </template>
 
 <script>
@@ -11,8 +13,11 @@ import Footer from "@/components/footer.vue";
 
 // import productCard from "@/components/productCard.vue";
 export default {
-  components: { Navbar, Footer //productCard}
-     }}
+  components: {
+    Navbar,
+    Footer, //productCard}
+  },
+};
 </script>
 <style>
 #app {

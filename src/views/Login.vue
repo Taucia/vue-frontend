@@ -50,7 +50,7 @@
                   />
                 </div>
                 <div v-if="user">
-                  <h2>login hjuhyujhyu</h2>
+                  <h2>login</h2>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6">
                   <router-link to="/Register"

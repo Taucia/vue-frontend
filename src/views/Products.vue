@@ -1,5 +1,40 @@
 <template>
-  <div class="container-fluid px-lg-3">
+  <div class="container-fluid px-lg-3">  
+  
+   
+   
+   
+   
+   <div class="row">
+    <div class="col-md-3 mt-3">
+      <select name="" v-model="category" id="" class="form-select btn1 btn1 text-center">
+        <option value="All" selected disabled>Filter by category</option>
+        <option value="All">All</option>
+        <option value="Romance">Romance</option>
+        <option value="Action">Action</option>
+        <option value="Young adult">Young Adult</option>
+        <option value="Thriller">Thriller</option>
+        <option value="Science Fiction">Science Fiction</option>
+        <option value="Fantasy">Fantasy</option>
+      </select>
+    </div>
+    <div class="col-md-3 mt-3">
+    <input v-model="search" type="text" class="form-control " name="" id="">
+    </div>
+    <div class="col-md">
+   <button @click="authordes" class="btn btn bi">Author ASC</button>
+    </div>
+    <div class="col-md">
+ <button @click="authorasc" class="btn btn bi">Author DES</button>
+</div>
+<div class="col-md">
+ <button @click="titledes" class="btn btn bi">Title ASC</button>
+</div>
+<div class="col-md">
+ <button @click="titleasc" class="btn btn bi">Title DES</button>
+</div>
+   </div>
+
     <div class="row">
       <div
         class="book-card pt-5 pb-5 m-2 col"
@@ -26,6 +61,9 @@
           <div class="book-card__author col">
             {{ product.author }}
           </div>
+          <div class="book-card__author col">
+            {{ product.category }}
+          </div>
           <router-link :to="{ name: 'product', params: { id: product.id } }">
             <button id="adminButton" class="btn btn">View Products</button>
           </router-link>
@@ -37,13 +75,73 @@
 
 <script>
 export default {
+data() {
+  return {
+    category : "All",
+    search : ""
+  }
+},
+
   computed: {
     products() {
       return this.$store.state.products;
     },
+    products() {
+      return this.$store.state.products?.filter((book) => {
+        let isMatch = true;
+        if (!book.title.toLowerCase().includes(this.search)) {
+          isMatch = false;
+        }
+        if (this.category !== "All" && this.category !== book.category) {
+          isMatch = false;
+        }
+        return isMatch;
+      });
+    },
   },
   mounted() {
     this.$store.dispatch("getProducts");
+  },
+  methods: {
+
+    authorasc() {
+      let authora = this.$store.state.products;
+      authora.sort((a, b) => {
+        if (a.author < b.author) {
+          return 1;
+        }
+        return -1;
+      });
+    },
+    
+    authordes() {
+      let authord = this.$store.state.products;
+      authord.sort((a, b) => {
+        if (a.author > b.author) {
+          return 1;
+        }
+        return -1;
+      });
+    },
+
+    titleasc() {
+      let titlea = this.$store.state.products;
+      titlea.sort((a, b) => {
+        if (a.title < b.title) {
+          return 1;
+        }
+        return -1;
+      });
+    },
+    titledes() {
+      let titled = this.$store.state.products;
+      titled.sort((a, b) => {
+        if (a.title > b.title) {
+          return 1;
+        }
+        return -1;
+      });
+    },
   },
 };
 </script>
@@ -66,7 +164,40 @@ body {
   background: linear-gradient(45deg, #673ab7 0%, #8a22aa 100%);
   justify-content: center;
 }
+.btn1:hover {
+  color: #2f7474;
+}
 
+.btn1 {
+  color: #22b1b1;
+}
+.btn1:hover {
+  color: #2f7474;
+}
+.btn{
+    background-image: linear-gradient(
+    to right,
+    #2f7474 0%,
+    #22b1b1 51%,
+    #2f7474 100%
+  );
+  margin: 10px;
+  padding: 10px 25px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.btn:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
 main {
   flex-grow: 1;
   display: flex;

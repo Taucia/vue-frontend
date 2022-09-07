@@ -32,11 +32,17 @@
       <br />
       <br />
       <div class="row">
-        <button class="col-6 btn1 btn-lg btn btn-block">Download</button>
-        <button class="col-6 btn1 btn-lg btn btn-block">Read</button>
+        <a class="col-6 btn1 btn-lg btn btn-block" :href="getBookId" target="_blank" @click.prevent="displayID(product[0].pdf)">
+          Download</a>
+        <!-- <button class="col-6 btn1 btn-lg btn btn-block">
+          
+        
+        </button> -->
+        <a class="col-6 btn1 btn-lg btn btn-block" :href="product[0].pdf" target="_blank">Read</a>
+
       </div>
       <hr>
-      <button @click="this.$store.dispatch('addCart',product[0])" class="col-6 btn1 btn-lg btn btn-block">Add to cart</button>
+      <button @click="this.$store.dispatch('addCart', product[0].id)" class="col-6 btn1 btn-lg btn btn-block">Add to cart</button>
     </div>
   </main>
 </template>
@@ -49,6 +55,16 @@ export default {
     product() {
       return this.$store.state.product;
     },
+    getBookId() {
+      return  `https://docs.google.com/document/d/1UcuoFmWm2c5VXmyNm3Zecu6fHaAaR6wavsbEIinuWE0/edit?download=${this.$store.state.pdfID}`;
+    }
+  },
+  methods: {
+    displayID(book) {
+      console.log(book);
+      this.$store.commit('setPdfId', book);
+      console.log(this.getBookId)
+    }
   }
 };
 </script>

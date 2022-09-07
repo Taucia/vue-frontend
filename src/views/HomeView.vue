@@ -5,12 +5,18 @@
 	   <div class="p-1 bg-light">
 		 <h1 class="display-5">TJLibrary</h1>
 	 
+		 <div class="container-fluid pt-5" id="home">
+    <div class="header">
+      <h1></h1>
+      <p>Popular Books</p>
+    </div>
+  </div>
 		 <hr class="my-2" />
 	   </div>
 	 </div>
    </div>
    <!-- carousel -->
-   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+   <div id="carouselExampleControls" class="carousel slide pb-5" data-bs-ride="carousel">
 	   <div class="carousel-inner">
 		 <div class="carousel-item active pic">
 		   <img src="https://i.postimg.cc/SsrGKTNR/It-Ends-With-Us.jpg" class="d-block  center " alt="...">
@@ -39,16 +45,58 @@
 		 <span class="visually-hidden">Next</span>
 	   </button>
 	 </div>
-   
- <!-- <div slider="center: true" >
+	 <div class="container-fluid" id="home">
+    <div class="header">
+      <h1></h1>
+      <p></p>Colleen Hoover
+    </div>
+  </div>
+
+  <div class="container galery mt-5 ">
+  <div class="row">
+    <div class="col-sm-12 col-md-2 col-lg-2">
+ <div class="shadow-effect">
+                <img class="img-circle img-fluid prodimg" src="https://i.postimg.cc/SsrGKTNR/It-Ends-With-Us.jpg" alt="it ends with us">
+                
+              </div>
+    </div>
+    <div class="col-sm-12 col-md-2 col-lg-2">
+    <div class="shadow-effect">
+                <img class="img-circle img-fluid prodimg" src="https://i.postimg.cc/138Pc2kx/verity.jpg" alt="verity">
+                
+              </div>
+    </div>
+    <div class="col-sm-12 col-md-2 col-lg-2">
+     <div class="shadow-effect">
+                <img class="img-circle img-fluid prodimg" src="https://i.postimg.cc/j2c3GqJ8/reminders-of-him.jpg" alt="reminders of him">
+                
+              </div>
+    </div>
+ 
+   <div class="col-sm-12 col-md-2 col-lg-2">
+   <div class="shadow-effect">
+                <img class="img-circle img-fluid prodimg" src="https://i.postimg.cc/9XpD8R2p/finding-cinderella.jpg" alt="finding cinderella">
+                
+              </div>
+    </div>
+  
+  </div>
+ </div> 
+	 <div class="container-fluid pt-5" id="home">
+    <div class="header">
+      <h1></h1>
+      <p>Brows books</p>
+    </div>
+  </div>
+ <div slider="center: true " >
    <div class="position-relative visible-toggle dark" tabindex="-1">
 	 <ul
 	   class="slider-items child-width-1-2@s child-width-1-4@l child-width-1-4@m grid"
 	 >
 	   <li>
 		 <div class="panel container">
-		   <div class=" box-container row">
-			 <div v-for="product in products" :key="product" class="card col-sm-5">
+		   <div class=" box-container row ">
+			 <div v-for="product in products" :key="product" class="card mr-10 ml-10 ">
 			   <div class="pic">
 				 <img
 				   class="book-card__img img-fluid"
@@ -88,7 +136,7 @@
    </div>
 
    <ul class="slider-nav dotnav flex-center margin"></ul>
- </div> -->
+ </div> 
 
 	</div>
 
@@ -114,6 +162,22 @@ export default {
 	h1 {
   color:#3c5454;
 }
+
+.header {
+  padding: 10px;
+  text-align: center;
+  background:#64b3f4;
+  color: white;
+  font-size: 20px;
+}
+.prodimg {
+  height: 150px;
+  width: 180px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  aspect-ratio: 1;
+}
 .box-container {
   display: flex;
   width: 100%;
@@ -123,6 +187,7 @@ export default {
   justify-content: flex;
   flex-direction: row;
   flex-flow: row nowrap;
+  overflow-x:scroll;
  
   /*%%%%%%%%
    %% CARD %%

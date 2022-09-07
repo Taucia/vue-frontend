@@ -23,32 +23,17 @@
           <th scope="row">{{user.userPassword}}/></th>
           <th scope="row">{{ user.cart }}</th>
           <th scope="row text-center">
+          
             <button
               data-bs-toggle="modal"
-              :data-bs-target="`#addUser` + user.UserId"
-              class="btn btn-grad"
-              id="prodButton"
-            >
-              Edit
-            </button>
-            <button
-              data-bs-toggle="modal"
-              :data-bs-target="`#adduser` + user.id"
               class=" btn btn-grad"
               id="prodButton"
-            >
-              Add
-            </button>
-            <button
-              data-bs-toggle="modal"
-              :data-bs-target="`#deleteuser` + user.id"
-              class=" btn btn-grad"
-              id="prodButton"
+            @click="this.$store.dispatch('deleteuser',user.id)" 
             >
               Delete
             </button>
           </th>
-          <EditModalUser :user="user" />
+          
           <addModalUser :user="user" />
           <DeleteUserModal :user="user" />
         </tr>

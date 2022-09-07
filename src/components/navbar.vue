@@ -40,7 +40,7 @@
               ><router-link to="/contact">Contact</router-link></a
             >
           </li>
-          <button>
+          <button @click="this.$store.dispatch('getCart')">
             <cartVue/>
           </button>
           
