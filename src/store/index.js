@@ -10,14 +10,8 @@ export default createStore({
     pdfID: null,
     products: null,
     product: null,
-    user: null || {
-      "id": 14,
-      "firstName": "k",
-      "lastName": "k",
-      "email": "k@gmail.com",
-      "password": "$2b$08$rouNvttup98wP/vhv4sNxuMYuiFykchXDq5DaW7nKoT3xY.YQcR8.",
-      "cart": "[{\"cart_id\":1,\"title\":\"The hobbit\",\"author\":\"J.R.R\",\"category\":\"Action\",\"description\":\" The Hobbit is set within Tolkien's fictional universe and follows the quest of home-loving Bilbo Baggins, the titular hobbit, to win a share of the treasure guarded by a dragon named Smaug. Bilbo's journey takes him from his light-hearted, rural surroundings into more sinister territory.\",\"img\":\"https://i.postimg.cc/9FqW5vfW/the-hobbit.jpg\",\"pdf\":\"https://docs.google.com/document/d/1wNj_omPoVh5CJRMkdPnivBVLZ-47Sc7spp-_rBmsQEQ/edit\"}]"
-    },
+    user: null || JSON.parse(localStorage.getItem('user')),
+    token:null|| localStorage.getItem("token"),
     cart: null,
   },
   getters: {
@@ -28,6 +22,9 @@ export default createStore({
 
   },
   mutations: {
+    settoken: (state, token) => {
+      localStorage.setItem("token", token);
+      state.token = token;},
     // Get the ID from the pdf link
     setPdfId(state, book) {
       let fstIndex = book.indexOf('d/')+2;
@@ -40,6 +37,7 @@ export default createStore({
     },
     setUser(state, user) {
       state.user = user
+      localStorage.setItem("user",JSON.stringify(user));
     },
     setProducts(state, products) {
       state.products = products;
@@ -100,7 +98,7 @@ export default createStore({
             data.msg
           } else {
             console.log(data)
-            context.commit("setUser", data.user);
+            context.commit("setUser", data.user[0]);
             router.push({
               name: "home"
             })
@@ -109,7 +107,12 @@ export default createStore({
           console.log(data);
         })
     },
-
+    logout(context){
+      context.state.user = null
+      localStorage.removeItem('user')
+      console.log("drfghjkhgfghjhgffghkjh")
+      window.location.reload()
+    },
     // get users
     getusers: async (context) => {
       let res = await fetch(fullstack_capstone_taskUrl + 'users');

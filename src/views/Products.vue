@@ -6,8 +6,8 @@
    
    
    <div class="row">
-    <div class="col-md-3 mt-3">
-      <select name="" v-model="category" id="" class="form-select btn1 btn1 text-center">
+    <div class="col-md-3 col-sm-12 col-lg-3 px-5 mt-3">
+      <select name="" v-model="category" id="" class="form-select btn1 btn1 text-center ">
         <option value="All" selected disabled>Filter by category</option>
         <option value="All">All</option>
         <option value="Romance">Romance</option>
@@ -18,22 +18,26 @@
         <option value="Fantasy">Fantasy</option>
       </select>
     </div>
-    <div class="col-md-3 mt-3">
-    <input v-model="search" type="text" class="form-control " name="" id="">
+    <div class="col-md-3 col-sm-12 col-lg-4 mt-3">
+    <input v-model="search" type="text" class="form-control text-center input " name="" id="" placeholder="Search" >
+    
     </div>
-    <div class="col-md">
-   <button @click="authordes" class="btn btn bi">Author ASC</button>
-    </div>
-    <div class="col-md">
- <button @click="authorasc" class="btn btn bi">Author DES</button>
-</div>
-<div class="col-md">
- <button @click="titledes" class="btn btn bi">Title ASC</button>
-</div>
-<div class="col-md">
- <button @click="titleasc" class="btn btn bi">Title DES</button>
-</div>
    </div>
+    <div class="container-fluid">
+
+    
+   <button @click="authordes" class="btn btn bi">Author A-Z</button>
+    
+   
+ <button @click="authorasc" class="btn btn bi">Author Z-A</button>
+
+
+ <button @click="titledes" class="btn btn bi">Title A-Z</button>
+
+
+ <button @click="titleasc" class="btn btn bi">Title Z-A</button>
+
+    </div>
 
     <div class="row">
       <div
@@ -158,11 +162,25 @@ html {
 }
 body {
   display: flex;
-  color: #313131;
+  color:#2f7474;
   font-family: "Times New Roman", serif;
-  background-color: #673ab7;
-  background: linear-gradient(45deg, #673ab7 0%, #8a22aa 100%);
+  background-color: #22b1b1;
+  background: linear-gradient(45deg, #22b1b1 0%, #22b1b1 100%);
   justify-content: center;
+}
+/* From uiverse.io by @Yaseen549 */
+.input {
+ color: #22b1b1;
+ border: 1px solid #757575;
+ border-radius: 2px;
+ padding: 10px 25px;
+ background: transparent;
+ max-width: 200px;
+ height:25px;
+}
+
+.input:active {
+ box-shadow: 2px 2px 15px #22b1b1 inset;
 }
 .btn1:hover {
   color: #2f7474;
@@ -170,6 +188,8 @@ body {
 
 .btn1 {
   color: #22b1b1;
+  
+  
 }
 .btn1:hover {
   color: #2f7474;
@@ -182,15 +202,17 @@ body {
     #2f7474 100%
   );
   margin: 10px;
-  padding: 10px 25px;
+  padding: 5px 15px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
   box-shadow: 0 0 20px #eee;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 12px;
+  height:25px;
+  width:105px;
 }
 
 .btn:hover {

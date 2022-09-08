@@ -1,8 +1,5 @@
 <template>
   <Navbar />
-  <h1 v-if="this.$store.state.user.userRole == 'admin'">
-    rdttyghjkl;kjgfdsghjkjiugfdghjkl;ghbnkkl;jhj
-  </h1>
   <router-view />
   <Footer />
 </template>

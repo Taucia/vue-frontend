@@ -32,7 +32,7 @@
       <br />
       <br />
       <div class="row">
-        <a class="col-6 btn1 btn-lg btn btn-block" :href="getBookId" target="_blank" @click.prevent="displayID(product[0].pdf)">
+        <a class="col-6 btn1 btn-lg btn btn-block" :href="product[0].pdf" target="_blank" :download="product[0].pdf">
           Download</a>
         <!-- <button class="col-6 btn1 btn-lg btn btn-block">
           

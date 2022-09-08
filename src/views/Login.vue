@@ -43,11 +43,22 @@
               <hr class="colorgraph" />
               <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
-                  <input
+                <div v-if="clicked">
+        <div v-if="user">
+          <p>Successfully logged in</p>
+        </div>
+        <div v-else>
+          <p>Checking...</p>
+        </div>
+      </div>
+      <div v-else class="wrap">
+       <input
                     type="submit"
                     class="btn1 btn-lg btn btn-block"
                     value="Sign In"
                   />
+      </div>
+                 
                 </div>
                 <div v-if="user">
                   <h2>login</h2>
