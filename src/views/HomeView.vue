@@ -1,9 +1,9 @@
 <template>
-	<div class="container">
+	<div class="container-fluid">
 	<div class="row">
 	 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	   <div class="p-1 bg-light">
-		 <h1 class="display-5">TJLibrary</h1>
+	   <div class="p-1 bg-light pt-2 text-center">
+		 <h1 class="display-5"><i class="bi bi-book"></i> TJLibrary  <i class="bi bi-book-fill"></i></h1>
 	 
 		 <div class="container-fluid pt-5" id="home">
     <div class="header">
@@ -175,7 +175,7 @@
 	   <li>
 		 <div class="panel container">
 		   <div class=" box-container row ">
-			 <div v-for="product in products" :key="product" class="card mr-10 ml-10 ">
+			 <div v-for="product in products" :key="product" class="card mt-5  ">
 			   <div class="pic">
 				 <img
 				   class="book-card__img img-fluid"
@@ -241,13 +241,17 @@ export default {
 	h1 {
   color:#3c5454;
 }
+.display-5{
+	font-family: 'Plus Jakarta Sans', sans-serif;
 
+}
 .header {
   padding: 10px;
   text-align: center;
   background:#64b3f4;
   color: white;
   font-size: 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 .prodimg {
   height: 15rem;

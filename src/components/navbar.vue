@@ -24,7 +24,7 @@
           <li>
             <span v-if="this.$store.state.user != null">
               <h1 v-if="this.$store.state.user.userRole == 'admin'">
-                Welcome Admin
+                Welcome Admin <i class="bi bi-star"></i>
               </h1>
             </span>
               <hr>

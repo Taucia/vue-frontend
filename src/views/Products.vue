@@ -5,7 +5,7 @@
    
    
    <div class="row">
-    <div class="col-md-3 col-sm-12 col-lg-3 px-5 mt-3">
+    <div class="col-md-3 col-sm-12 col-lg-3  mt-3">
       <select name="" v-model="category" id="" class="form-select btn1 btn1 text-center ">
         <option value="All" selected disabled>Filter by category</option>
         <option value="All">All</option>
@@ -17,12 +17,12 @@
         <option value="Fantasy">Fantasy</option>
       </select>
     </div>
-    <div class="col-md-3 col-sm-12 col-lg-4 mt-3">
+    <div class="col-md-4 col-sm-12 col-lg-5 mt-3">
     <input v-model="search" type="text" class="form-control text-center input " name="" id="" placeholder="Search" >
     
     </div>
    </div>
-    <div class="container-fluid">
+    <div class="container-fluid col-md">
 
     
    <button @click="authordes" class="btn btn bi">Author A-Z</button>
@@ -164,6 +164,7 @@ data() {
   margin: 0;
   padding: 0;
 }
+
 body,
 html {
   height: 100%;
@@ -220,7 +221,7 @@ body {
   border-radius: 5px;
   font-size: 12px;
   height:25px;
-  width:105px;
+  width:120px;
 }
 
 .btn:hover {

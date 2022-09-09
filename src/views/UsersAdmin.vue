@@ -27,7 +27,7 @@
           
           <button
               data-bs-toggle="modal"
-              :data-bs-target="'#exampleModal' + user.id"
+              :data-bs-target="'#update' + user.id"
               class=" btn btn-grad"
               id="prodButton"
             >
@@ -44,6 +44,7 @@
           </th>
           
           <addModalUser :user="user" />
+          <updateuser :user="user" />
           <DeleteUserModal :user="user" />
         </tr>
       </tbody>
@@ -52,12 +53,13 @@
   </div>
 </template>
 <script>
-// import UserCartModal from '../components/UserCartModal.vue';
+import updateuser from '../components/updateuser.vue';
 // import DeleteAccountModal from '../components/DeleteAccountModal.vue';
 export default {
-//   components:{
-  //     UserCartModal,DeleteAccountModal
-//   },
+  components:{
+      // UserCartModal,DeleteAccountModal
+      updateuser
+  },
   computed: {
     users() {
       return this.$store.state.users;

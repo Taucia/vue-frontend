@@ -144,7 +144,8 @@ export default createStore({
     },
      // edit user
      edituser(context, user) {
-      fetch("https://library-apibackend.herokuapp.com/users/" + context.state.user.id, {
+      // fetch("https://library-apibackend.herokuapp.com/users/" + user.id, {
+      fetch("https://library-apibackend.herokuapp.com/users/" + user.id, {
         method: "PUT",
         body: JSON.stringify(user),
         headers: {
@@ -154,29 +155,27 @@ export default createStore({
         .then((edituser) => edituser.json())
         .then((data) => {
 
-          if (data.msg === "Edit Failed.") {
-            swal({
-              icon: 'error',
-              title: `${data.msg}`,
-              buttons: false,
-              timer: 2000,
-            })
-          }
-          if (data.msg === "Edit Successfull.") {
-            console.log(data)
-            context.dispatch("getusers",
-              swal({
-                icon: "success",
-                title: `${data.msg}`,
-                buttons: false,
-                timer: 1000,
-              })
-            )
-          }
-
-
-
-
+          // if (data.msg === "Edit Failed.") {
+          //   swal({
+          //     icon: 'error',
+          //     title: `${data.msg}`,
+          //     buttons: false,
+          //     timer: 2000,
+          //   })
+          // }
+          // if (data.msg === "Edit Successfull.") {
+          //   console.log(data)
+          //   context.dispatch("getusers",
+          //     swal({
+          //       icon: "success",
+          //       title: `${data.msg}`,
+          //       buttons: false,
+          //       timer: 1000,
+          //     })
+          //   )
+          // }
+          console.log(data.msg)
+          context.dispatch('getusers')
         });
     },
 

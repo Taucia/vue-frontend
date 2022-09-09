@@ -44,7 +44,7 @@
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
   <div class="form-control text-center" >
-    FirstName:{{user.firstName}}
+   {{user.firstName}}
   </div>
   
     </div>
@@ -59,7 +59,7 @@
     <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
   <div class="form-control text-center" >
-    LastName:{{user.lastName}}
+    {{user.lastName}}
   </div>
     </div>
   </div>
@@ -72,7 +72,7 @@
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
   <div class="form-control text-center" >
-    Email:{{user.email}}
+ {{user.email}}
   </div>
     </div>
   </div>
@@ -87,7 +87,7 @@
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
   <div  class="form-control text-center" >
-    Password:{{user.password}}
+  {{user.password}}
   </div>
     </div>
   </div>
@@ -101,11 +101,12 @@
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
   <div  class="form-control text-center" >
-    Password:{{user.userRole}}
+  {{user.userRole}}
   </div>
     </div>
   </div>
 </div>
+<updateuser :user="user" />
       
                 <button class="btn-grad">
                     Edit
@@ -126,8 +127,12 @@
   </template>
   
   <script>
+    import updateuser from '../components/updateuser.vue';
   export default {
-    name: "userprofile",
+    component:{
+        updateuser,
+    },
+    name: "userprofile" ,
     computed: {
       user() {
         return this.$store.state.user;

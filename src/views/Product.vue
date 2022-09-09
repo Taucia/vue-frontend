@@ -33,16 +33,16 @@
       <br />
       <div class="row">
         <a class="col-6 btn1 btn-lg btn btn-block" :href="product[0].pdf" target="_blank" :download="product[0].pdf">
-          Download</a>
+          Download <i class="bi bi-file-earmark-arrow-down-fill"></i></a>
         <!-- <button class="col-6 btn1 btn-lg btn btn-block">
           
         
         </button> -->
-        <a class="col-6 btn1 btn-lg btn btn-block" :href="product[0].pdf" target="_blank">Read</a>
+        <a class="col-6 btn1 btn-lg btn btn-block" :href="product[0].pdf" target="_blank">Read <i class="bi bi-book-half"></i></a>
 
       </div>
       <hr>
-      <button @click="this.$store.dispatch('addCart', product[0].id)" class="col-6 btn1 btn-lg btn btn-block">Add to cart</button>
+      <button @click="this.$store.dispatch('addCart', product[0].id)" class="col-6 btn1 btn-lg btn btn-block">Add to WishList <i class="bi bi-star"></i></button>
     </div>
   </main>
 </template>

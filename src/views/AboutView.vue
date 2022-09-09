@@ -1,4 +1,10 @@
 <template>
+  <div class="container-fluid" id="about">
+    <div class="header mt-5 mb-5">
+      <h1></h1>
+      <p>ABOUT US</p>
+    </div>
+  </div>
   <div class="about container">
     <p>TJLibrary was created in 2022, for the convienecie of readers in the world. this website makes it easier for readers to access their favourite books as well as finding new authors, it was created so that readers can read as well as download books on one site so that they have no issues with enjoying their favourite or new book.
     </p>
@@ -14,7 +20,7 @@
                       alt="Another Image zoom-on-hover effect"
                     /></li>
                   
-      <li class="col-md-6 pt-5 col- "> 
+      <li class="col-md-4 pt-5 col-sm-12 "> 
         <p>Taucia Jackson is a Aspiring Web Developer with a passion for reading. She reads in her spare time and adores all book genres. Taucia created this website to make it easier for others to access books they love to read or want to read as well as download,without having to pay a monthly or annual subscription.  </p> 
       <p>“Fifteen seconds. That’s all it takes to completely change everything about a person. Fifteen.”
 ― Colleen Hoover, It Ends with Us</p></li>
@@ -28,6 +34,14 @@
 </script>
 
 <style scoped>
+  .header {
+  padding: 10px;
+  text-align: center;
+  background:#64b3f4;
+  color: white;
+  font-size: 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
 .img{ width: 10px;
 height: 10px;}
 .img-hover-zoom--colorize img {
