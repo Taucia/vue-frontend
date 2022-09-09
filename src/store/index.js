@@ -77,8 +77,8 @@ export default createStore({
         })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data.msg);
-          console.log(data.userData);
+          context.commit('setUser', data.userData);
+          router.push({name:'login'})
         })
     },
     // login
@@ -142,36 +142,45 @@ export default createStore({
         .then((res) => res.json())
         .then(() => context.dispatch('getusers'));
     },
-    // update user
-    updateuser: async (context, payload) => {
-      // fecth from body
-      const {
-        firstName,
-        lastName,
-        email,
-        password
-      } = payload;
-      // fetch method from api
-      fetch("https://library-apibackend.herokuapp.com/users/", {
-          method: "POST",
-
-          headers: {
-            "Content-type": "application/json; charset=UTF-8",
-          },
-          // fetch data from form
-          body: JSON.stringify({
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            password: password
-          }),
-        })
-        .then((res) => res.json())
+     // edit user
+     edituser(context, user) {
+      fetch("https://library-apibackend.herokuapp.com/users/" + context.state.user.id, {
+        method: "PUT",
+        body: JSON.stringify(user),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((edituser) => edituser.json())
         .then((data) => {
-          alert(data.msg);
-          context.dispatch("getUsers");
+
+          if (data.msg === "Edit Failed.") {
+            swal({
+              icon: 'error',
+              title: `${data.msg}`,
+              buttons: false,
+              timer: 2000,
+            })
+          }
+          if (data.msg === "Edit Successfull.") {
+            console.log(data)
+            context.dispatch("getusers",
+              swal({
+                icon: "success",
+                title: `${data.msg}`,
+                buttons: false,
+                timer: 1000,
+              })
+            )
+          }
+
+
+
+
         });
     },
+
+    
     // _____________
     // get products
     // async getProducts(context) {

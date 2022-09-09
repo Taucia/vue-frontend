@@ -48,7 +48,7 @@
 	 <div class="container-fluid" id="home">
     <div class="header">
       <h1></h1>
-      <p></p>Colleen Hoover
+      <p>Colleen Hoover</p>
     </div>
   </div>
 
@@ -82,13 +82,92 @@
   
   </div>
  </div> 
-	 <div class="container-fluid pt-5" id="home">
+
+ <div class="container-fluid mt-5" id="home">
+    <div class="header">
+      <h1></h1>
+      <p>Romance</p>
+    </div>
+  </div>
+ <div class="container galery mt-5 ">
+  <div class="row">
+    <div class="col-sm-12 col-md-2 col-lg-2">
+ <div class="shadow-effect">
+                <img class="img-circle img-fluid prodimg" src="https://i.postimg.cc/T3Jj0Ng9/the-spanish-love-deception.png" alt="it ends with us">
+                
+              </div>
+    </div>
+    <div class="col-sm-12 col-md-2 col-lg-2">
+    <div class="shadow-effect">
+                <img class="img-circle img-fluid prodimg" src="https://i.postimg.cc/SsrGKTNR/It-Ends-With-Us.jpg" alt="verity">
+                
+              </div>
+    </div>
+    <div class="col-sm-12 col-md-2 col-lg-2">
+     <div class="shadow-effect">
+                <img class="img-circle img-fluid prodimg" src="https://i.postimg.cc/j2c3GqJ8/reminders-of-him.jpg" alt="reminders of him">
+                
+              </div>
+    </div>
+ 
+   <div class="col-sm-12 col-md-2 col-lg-2">
+   <div class="shadow-effect">
+                <img class="img-circle img-fluid prodimg" src="https://i.postimg.cc/br4SYkbd/the-notebook.jpg" alt="finding cinderella">
+                
+              </div>
+    </div>
+  
+  </div>
+ </div> 
+
+ <div class="container-fluid mt-5" id="home">
+    <div class="header">
+      <h1></h1>
+      <p>Young Adult</p>
+    </div>
+  </div>
+ <div class="container galery mt-5 ">
+  <div class="row">
+    <div class="col-sm-12 col-md-2 col-lg-2">
+ <div class="shadow-effect">
+                <img class="img-circle img-fluid prodimg" src="https://i.postimg.cc/7LcpPLhb/The-Fault-in-Our-Stars.jpg" alt="it ends with us">
+                
+              </div>
+    </div>
+    <div class="col-sm-12 col-md-2 col-lg-2">
+    <div class="shadow-effect">
+                <img class="img-circle img-fluid prodimg" src="https://i.postimg.cc/LX9ZXmWK/red-queen.jpg" alt="verity">
+                
+              </div>
+    </div>
+    <div class="col-sm-12 col-md-2 col-lg-2">
+     <div class="shadow-effect">
+                <img class="img-circle img-fluid prodimg" src="https://i.postimg.cc/Vvz4zyqd/to-all-the-boys.jpg" alt="reminders of him">
+                
+              </div>
+    </div>
+ 
+   <div class="col-sm-12 col-md-2 col-lg-2">
+   <div class="shadow-effect">
+                <img class="img-circle img-fluid prodimg" src="https://i.postimg.cc/9QH00W48/the-lightning-thief.jpg" alt="finding cinderella">
+                
+              </div>
+    </div>
+  
+  </div>
+ </div> 
+
+
+
+
+ 
+	 <div class="container-fluid pt-5 pb-5" id="home">
     <div class="header">
       <h1></h1>
       <p>Brows books</p>
     </div>
   </div>
- <div slider="center: true " >
+ <div slider="center: true pt-5 " >
    <div class="position-relative visible-toggle dark" tabindex="-1">
 	 <ul
 	   class="slider-items child-width-1-2@s child-width-1-4@l child-width-1-4@m grid"
@@ -171,7 +250,7 @@ export default {
   font-size: 20px;
 }
 .prodimg {
-  height: 150px;
+  height: 15rem;
   width: 180px;
   display: block;
   margin-left: auto;
@@ -289,4 +368,15 @@ export default {
 	color:#2d3436;
 	background-color:#64b3f4;
 }
+.row {
+    --bs-gutter-x: -1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(var(--bs-gutter-y) * -1);
+    margin-right: calc(var(--bs-gutter-x) * -.5);
+    margin-left: calc(var(--bs-gutter-x) * -.5);
+    justify-content: space-between;
+	
+}	
 </style>

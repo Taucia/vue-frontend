@@ -12,11 +12,12 @@
           <th scope="col">User Password</th>
           <th scope="col">Cart</th>
           <th scope="col">Delete</th>
+              
         </tr>
       </thead>
            <tbody>
         <tr v-for="user in users" :key="user.userId">
-          <th scope="row" class="p-2">{{ user.userId }}</th>
+          <th scope="row" class="p-2">{{ user.id }}</th>
           <th scope="row">{{ user.firstName }}</th>
           <th scope="row">{{ user.lastName }}</th>
           <th scope="row">{{ user.email }}</th>
@@ -24,6 +25,14 @@
           <th scope="row">{{ user.cart }}</th>
           <th scope="row text-center">
           
+          <button
+              data-bs-toggle="modal"
+              :data-bs-target="'#exampleModal' + user.id"
+              class=" btn btn-grad"
+              id="prodButton"
+            >
+              Edit
+            </button>
             <button
               data-bs-toggle="modal"
               class=" btn btn-grad"
@@ -56,6 +65,11 @@ export default {
   },
   mounted() {
     this.$store.dispatch("getusers");
+  },
+  methods: {
+    edituser() {
+      return this.$store.dispatch("edituser", this.user);
+    },
   },
 };
 </script>

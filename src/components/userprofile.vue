@@ -6,7 +6,7 @@
       role="button"
       aria-controls="offcanvasExample"
     >
-      <i class="bi bi-bookmark-star"></i>
+    <i class="bi bi-person-square"></i>
     </a>
   
     <div
@@ -17,7 +17,7 @@
     >
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasExampleLabel">
-           User Profile <i class="bi bi-star"></i>
+           User Profile  <i class="bi bi-person-square"></i>
         </h5>
      
         <button
@@ -35,13 +35,94 @@
           <div class="container card row text-center">
             <div v-if="this.$store.state.user != null">
                 <div v-if="user">
-                <h1>{{ user.id }}</h1>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md control-label">First Name</label>  
+  <div class="col-md inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <div class="form-control text-center" >
+    FirstName:{{user.firstName}}
+  </div>
+  
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md control-label" >Last Name</label> 
+    <div class="col-md inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <div class="form-control text-center" >
+    LastName:{{user.lastName}}
+  </div>
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+       <div class="form-group">
+  <label class="col-md control-label">E-Mail</label>  
+    <div class="col-md inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+  <div class="form-control text-center" >
+    Email:{{user.email}}
+  </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Text input-->
+       
+<div class="form-group">
+  <label class="col-md- control-label">Password</label>  
+    <div class="col-md inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+  <div  class="form-control text-center" >
+    Password:{{user.password}}
+  </div>
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+       
+<div class="form-group">
+  <label class="col-md- control-label">UserRole</label>  
+    <div class="col-md inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+  <div  class="form-control text-center" >
+    Password:{{user.userRole}}
+  </div>
+    </div>
+  </div>
+</div>
+      
+                <button class="btn-grad">
+                    Edit
+                </button>
+                  <button class="btn-grad">
+                    Delete
+                </button>
+
+</div>
+    </div><!-- /.container -->
             </div>
             </div>
           </div>
-        </div>
-      </div>
+     
     <!-- </div> -->
+
+
   </template>
   
   <script>
@@ -58,6 +139,74 @@
   };
   </script>
 
-<style>
+<style scoped>
 
+a {
+  font-weight: bold;
+  color: #3c5454;
+}
+
+a.router-link-exact-active {
+  color:#3c5454;
+}
+.btn {
+  background-image: linear-gradient(
+    to right,
+    #22b1b1 0%,
+    #2f7474 51%,
+    #22b1b1 100%
+  );
+  margin: 10px;
+
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.btn:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+.bi {
+  color: #9ed4d4;
+  background-color: #eee;
+  height: 50px;
+}
+.form-control{
+    width:380px;
+    margin:20px;
+    justify-items: center;
+    align-content: center;
+    padding: 2px;
+}
+
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #22b1b1 0%,
+    #2f7474 51%,
+    #22b1b1 100%
+  );
+  margin: 10px;
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  font-size: 12px;
+}
+.btn-grad:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
 </style>

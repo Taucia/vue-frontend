@@ -16,7 +16,7 @@
   >
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasExampleLabel">
-        Wish List <i class="bi bi-star"></i>
+        Wish List  <i class="bi bi-bookmark-star-fill"></i>
       </h5>
       <button @click="this.$store.dispatch('clearCart')"
         class="btn btn-grad"
@@ -80,11 +80,11 @@ export default {
 <style scoped>
 a {
   font-weight: bold;
-  color: #cde5e5;
+  color: #3c5454;
 }
 
 a.router-link-exact-active {
-  color: #8db0b0;
+  color:#22b1b1;
 }
 .bi {
   background-color: #3c5454;

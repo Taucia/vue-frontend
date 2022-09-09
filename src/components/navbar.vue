@@ -1,6 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar">
-    <div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar ">
+    <div class="container-fluid ">
       <a href="#">
         <img
           class="img img-fluid"
@@ -8,7 +8,7 @@
           alt="logo"
       /></a>
       <button
-        class="navbar-toggler"
+        class="navbar-toggler "
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarNav"
@@ -18,6 +18,7 @@
       >
         <i class="bi bi-arrow-down-circle"></i>
       </button>
+    
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-md-auto">
           <li>
@@ -26,6 +27,7 @@
                 Welcome Admin
               </h1>
             </span>
+              <hr>
           </li>
           <li class="nav-item rounded">
             <a class="navbar-brand" href="#"
@@ -50,17 +52,18 @@
               ><i class="bi bi-telephone me-2"></i
               ><router-link to="/contact">Contact</router-link></a
             >
-          </li>
+          </li> 
+          <!-- <li > <a class="navbar-brand" href="#"><i class="bi bi-box-arrow-right"></i>
+            <router-link class="link" to="/login" @click="logout()"
+              >Logout</router-link> </a>
+            
+          </li> -->
           <li>
             <button @click="this.$store.dispatch('getCart')">
               <cartVue />
             </button>
           </li>
-          <li>
-            <router-link class="link" to="/login" @click="logout()"
-              >Logout</router-link
-            >
-          </li>
+         
 
           <li>
             <button
@@ -71,6 +74,8 @@
               <userprofile />
             </button>
           </li>
+          <li>
+            
           <div v-if="user">
             <li class="dropdown">
               <button
@@ -80,11 +85,18 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               ></button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <button v-if="this.$store.state.user != null" @click="logout">logout</button>
-                <router-link to="/admin">
+              <ul v-if="user.userRole == 'admin'" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li @click="logout">
+                  <a class="dropdown-item" href="#">logout</a>
+                </li>
+                <router-link to="/admin/:id">
                   <li><a class="dropdown-item" href="#">admin</a></li>
                 </router-link>
+              </ul>
+              <ul v-else class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li @click="logout">
+                  <a class="dropdown-item" href="#">logout</a>
+                </li>
               </ul>
             </li>
           </div>
@@ -97,7 +109,7 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               ></button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
                 <router-link to="/login">
                   <li><a class="dropdown-item" href="#">login</a></li>
                 </router-link>
@@ -107,6 +119,7 @@
               </ul>
             </li>
           </div>
+          </li>
         </ul>
       </div>
     </div>
@@ -125,7 +138,7 @@ export default {
       return this.$store.state.user;
     },
     mounted() {
-      this.$store.dispatch("getUser");
+      this.$store.dispatch("getuser");
     },
     methods: {
       logout() {
@@ -140,11 +153,11 @@ export default {
     cartVue,
     userprofile,
   },
-  computed: {
-    User() {
-      return $store.state.User;
-    },
-  },
+  // computed: {
+  //   User() {
+  //     return $store.state.User;
+  //   },
+  // },
   methods: {
     logout() {
       return this.$store.dispatch("logout");
@@ -154,9 +167,12 @@ export default {
 </script>
 
 <style scoped>
+  h1{
+    padding-right:50px;
+  }
 .navbar-expand-lg .navbar-collapse {
-  align-self: flex-start;
-  justify-content: flex-end !important;
+ padding-right:130px;
+ 
 }
 nav[data-v-688b5e20] {
   padding: 0px;

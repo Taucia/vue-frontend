@@ -1,14 +1,10 @@
 <template>
   <div class="about container">
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse, culpa sunt alias nemo nostrum obcaecati laudantium eligendi deleniti, laboriosam corrupti quo fuga ipsa veniam qui at sint possimus quidem! Molestiae.sapiente! Quo quos excepturi dolores nemo hic officia ab 
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse quod quaerat, tempora asperiores possimus explicabo porro perspiciatis, vitae minus officia qui voluptatem aliquam quam sed, quis praesentium ex cumque reprehenderit!sapiente! Quo quos excepturi
-
+    <p>TJLibrary was created in 2022, for the convienecie of readers in the world. this website makes it easier for readers to access their favourite books as well as finding new authors, it was created so that readers can read as well as download books on one site so that they have no issues with enjoying their favourite or new book.
     </p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti quibusdam porro numquam, similique ea minus at facere molestiae quia nam, distinctio ratione ut, rerum quae officia possimus dicta dolor? Consequatur.sapiente! Quo quos excepturi dolores nemo hic officia ab 
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex odio exercitationem dolorem ratione aliquam assumenda, amet voluptas modi sapiente! Quo quos excepturi dolores nemo hic officia ab aperiam voluptates labore?sapiente! Quo quos excepturi dolores nemo hic  
+    <p>we strive to make a broad spectrum of books available, ensuring that popular authors and current bestsellers are on display along with books of specific local interest and hidden gems. Drawing from the wide knowledge base of our passionate booksellers allows us to represent an expansive range of interests and voices, and our far-reaching network of suppliers means that, even if a particular title is not on the shelves, we can order in just about any book you should want.
     </p>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti quibusdam porro numquam, similique ea minus at facere molestiae quia nam, distinctio ratione ut, rerum quae officia possimus dicta dolor? Consequatur.sapiente! Quo quos excepturi dolores nemo hic officia ab 
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex odio exercitationem dolorem ratione aliquam assumenda, amet voluptas modi sapiente! Quo quos excepturi dolores nemo hic officia ab aperiam voluptates labore?sapiente! Quo quos excepturi dolores nemo hic
+      <p>In championing convenience, we do everything we can to encourage a stress free and rewarding reading experience. Via careful use of eye-catching displays and intuitive layouts, and by locating bestsellers and sought-after titles near the entrance, we ensure that your visit to our website can be as quick and easy as you want it to be. And you’ll never have trouble spotting a bookseller if you have a question that you’d like answered quickly.we are conscientious about facilitating simple, safe book shopping.
     </p>
  <hr>
      <ul class="row">
@@ -18,10 +14,10 @@
                       alt="Another Image zoom-on-hover effect"
                     /></li>
                   
-      <li class="col-md-6 pt-5 col- "> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo totam minus commodi expedita magnam, porro eius quas ex voluptate, repudiandae rem maxime alias, reiciendis iusto quia aperiam. Tempora, ut distinctio.
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos quia molestiae pariatur quaerat debitis ratione totam. Atque, ducimus et ipsa commodi tenetur, fugiat quidem animi suscipit temporibus nostrum, vel hic.lorem
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, quos quae. Sapiente earum veritatis, sint repellat sunt hic, ducimus esse quaerat harum pariatur adipisci. Nihil eveniet tenetur consectetur reiciendis a.
-                    </p> </li>
+      <li class="col-md-6 pt-5 col- "> 
+        <p>Taucia Jackson is a Aspiring Web Developer with a passion for reading. She reads in her spare time and adores all book genres. Taucia created this website to make it easier for others to access books they love to read or want to read as well as download,without having to pay a monthly or annual subscription.  </p> 
+      <p>“Fifteen seconds. That’s all it takes to completely change everything about a person. Fifteen.”
+― Colleen Hoover, It Ends with Us</p></li>
       </ul> 
                   
                  
