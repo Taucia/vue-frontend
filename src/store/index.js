@@ -2,7 +2,7 @@ import {
   createStore
 } from 'vuex'
 import router from '@/router';
-const fullstack_capstone_taskUrl = 'https://library-apibackend.herokuapp.com/';
+const fullstack_capstone_taskUrl = 'https://tjlibrary.onrender.com/';
 
 export default createStore({
   state: {
@@ -60,9 +60,9 @@ export default createStore({
         password
       } = payload;
       // fetch method from api
-      // await fetch("https://library-apibackend.herokuapp.com/register", {
-      await fetch("https://library-apibackend.herokuapp.com/register", {
-          // await fetch("https://library-apibackend.herokuapp.com/register", {
+      // await fetch("https://tjlibrary.onrender.com/register", {
+      await fetch("https://tjlibrary.onrender.com/register", {
+          // await fetch("https://tjlibrary.onrender.com/register", {
           method: "POST",
           headers: {
             "Content-type": "application/json; charset=UTF-8",
@@ -85,7 +85,7 @@ export default createStore({
     // login
     login(context, payload) {
       // console.log(payload);
-      fetch("https://library-apibackend.herokuapp.com/login", {
+      fetch("https://tjlibrary.onrender.com/login", {
           method: "POST",
           headers: {
             "Content-type": "application/json; charset=UTF-8",
@@ -136,7 +136,7 @@ export default createStore({
     },
     // delete user
     deleteuser: async (context, id) => {
-      fetch("https://library-apibackend.herokuapp.com/users/" + id, {
+      fetch("https://tjlibrary.onrender.com/users/" + id, {
           method: "DELETE",
         })
         .then((res) => res.json())
@@ -144,8 +144,8 @@ export default createStore({
     },
      // edit user
      edituser(context, user) {
-      // fetch("https://library-apibackend.herokuapp.com/users/" + user.id, {
-      fetch("https://library-apibackend.herokuapp.com/users/" + user.id, {
+      // fetch("https://tjlibrary.onrender.com/users/" + user.id, {
+      fetch("https://tjlibrary.onrender.com/users/" + user.id, {
         method: "PUT",
         body: JSON.stringify(user),
         headers: {
@@ -183,12 +183,12 @@ export default createStore({
     // _____________
     // get products
     // async getProducts(context) {
-    //   fetch(`https://library-apibackend.herokuapp.com/products`)
+    //   fetch(`https://tjlibrary.onrender.com/products`)
     //     .then((res) => res.json())
     //     .then((data) => context.state.products = data.results )
     // },
     getProducts: async (context) => {
-      let res = await fetch('https://library-apibackend.herokuapp.com/products');
+      let res = await fetch('https://tjlibrary.onrender.com/products');
       let data = await res.json();
       let result = data.results;
       if (result) {
@@ -222,7 +222,7 @@ export default createStore({
       } = payload;
 
       try {
-        await fetch("https://library-apibackend.herokuapp.com/products", {
+        await fetch("https://tjlibrary.onrender.com/products", {
             method: "POST",
             headers: {
               "Content-type": "application/json; charset=UTF-8",
@@ -247,7 +247,7 @@ export default createStore({
     },
     // Edit GPU
     editProduct(context, product) {
-      fetch(`https://library-apibackend.herokuapp.com/products/${product.id}`, {
+      fetch(`https://tjlibrary.onrender.com/products/${product.id}`, {
           method: "PUT",
           body: JSON.stringify(product),
           headers: {
@@ -264,7 +264,7 @@ export default createStore({
     // delete product
     deleteProduct: async (context, product) => {
       console.log(product);
-      fetch("https://library-apibackend.herokuapp.com/products/" + product.id, {
+      fetch("https://tjlibrary.onrender.com/products/" + product.id, {
           method: "DELETE",
           body: JSON.stringify(product),
           headers: {
@@ -280,7 +280,7 @@ export default createStore({
     // updates list
     updateProduct: async (context, product) => {
       // fetch("http://localhost:3000/products/" + product.id, {
-      fetch("https://library-apibackend.herokuapp.com/products/" + product.Prod_id, {
+      fetch("https://tjlibrary.onrender.com/products/" + product.Prod_id, {
           method: "PUT",
           body: JSON.stringify(product),
           headers: {
@@ -305,7 +305,7 @@ export default createStore({
       } = payload;
 
       try {
-        await fetch("https://library-apibackend.herokuapp.com/users", {
+        await fetch("https://tjlibrary.onrender.com/users", {
             method: "POST",
             headers: {
               "Content-type": "application/json; charset=UTF-8",
@@ -332,7 +332,7 @@ export default createStore({
       id = context.state.user.id
       // fetch
       let res = await fetch(
-        `https://library-apibackend.herokuapp.com/users/${id}/cart`
+        `https://tjlibrary.onrender.com/users/${id}/cart`
       );
       let data = await res.json();
       let result = data.results;
@@ -349,8 +349,8 @@ export default createStore({
       // console.log(context.state.cart);
       id = context.state.user.id;
       console.log(product)
-      await fetch(`https://library-apibackend.herokuapp.com/users/${id}/cart`, {
-      // await fetch(`https://library-apibackend.herokuapp.com/users/${id}/cart`, {
+      await fetch(`https://tjlibrary.onrender.com/users/${id}/cart`, {
+      // await fetch(`https://tjlibrary.onrender.com/users/${id}/cart`, {
           method: "POST",
           body: JSON.stringify({id : product}),
           headers: {
@@ -368,8 +368,8 @@ export default createStore({
       console.log(context.state.cart);
       id = context.state.user.id;
       console.log(product)
-      await fetch(`https://library-apibackend.herokuapp.com/users/${id}/cart/${product.cart_id}`, {
-      // await fetch(`https://library-apibackend.herokuapp.com/users/${id}/cart`, {
+      await fetch(`https://tjlibrary.onrender.com/users/${id}/cart/${product.cart_id}`, {
+      // await fetch(`https://tjlibrary.onrender.com/users/${id}/cart`, {
           method: "DELETE",
           headers: {
             "Content-type": "application/json; charset=UTF-8"
@@ -386,7 +386,7 @@ export default createStore({
       console.log(context.state.cart);
       id = context.state.user.id;
       // console.log(product)
-      await fetch(`https://library-apibackend.herokuapp.com/users/${id}/cart`, {
+      await fetch(`https://tjlibrary.onrender.com/users/${id}/cart`, {
           method: "DELETE",
           headers: {
             "Content-type": "application/json; charset=UTF-8"
